@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.FinalWinners;
 
 public class OutputView {
     private static final String EXECUTION_RESULTS = "실행 결과";
@@ -26,21 +27,7 @@ public class OutputView {
         }
     }
 
-    public static String finalWinnerString(List<Car> winners) {
-        StringBuilder result = new StringBuilder("최종 우승자 : ");
-        for (int i = 0; i < winners.size(); i++) {
-            result.append(winners.get(i).getName());
-            if (i < winners.size() - 1) {
-                result.append(", "); // 쉼표로 구분 (마지막 우승자 뒤에는 쉼표를 추가하지 않음)
-            }
-        }
-
-        return result.toString();
-    }
-
-    public static void finalWinner(List<Car> winners) {
-        String finalWinner = finalWinnerString(winners);
-
-        System.out.println(finalWinner);
+    public static void finalWinner(FinalWinners winners) {
+        System.out.println(winners.toString());
     }
 }
