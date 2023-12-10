@@ -2,6 +2,7 @@ package study.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.Cars;
@@ -9,8 +10,9 @@ import racingcar.model.FinalWinners;
 
 public class GameResultTest {
 
+    @DisplayName("단독 우승자 출력")
     @Test
-    void 단독_우승_출력() {
+    void printSoleWinner() {
         Cars cars = new Cars();
 
         String carNames = "pobi, jun";
@@ -25,8 +27,9 @@ public class GameResultTest {
         assertEquals("최종 우승자 : pobi", finalWinners.toString());
     }
 
+    @DisplayName("공동 우승자 출력")
     @Test
-    void 공동_우승_출력() {
+    void printJointWinner() {
         Cars cars = new Cars();
 
         String carNames = "pobi, jun";
