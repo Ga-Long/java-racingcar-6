@@ -2,33 +2,44 @@ package study.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
-import racingcar.view.OutputView;
+import racingcar.model.Cars;
+import racingcar.model.FinalWinners;
 
 public class GameResultTest {
 
     @Test
     void 단독_우승_출력() {
-        List<Car> winners = new ArrayList<>();
+        Cars cars = new Cars();
 
-        Car car1 = new Car("pobi");
-        winners.add(car1);
+        String carNames = "pobi, jun";
+        cars.registerCars(carNames);
 
-        assertEquals("최종 우승자 : pobi", OutputView.finalWinnerString(winners));
+        Car car1 = cars.getCars().get(0);
+        car1.forward();
+
+        FinalWinners finalWinners = new FinalWinners();
+        finalWinners.decideWinner(cars);
+
+        assertEquals("최종 우승자 : pobi", finalWinners.toString());
     }
 
     @Test
     void 공동_우승_출력() {
-        List<Car> winners = new ArrayList<>();
+        Cars cars = new Cars();
 
-        Car car1 = new Car("pobi");
-        Car car2 = new Car("jun");
-        winners.add(car1);
-        winners.add(car2);
+        String carNames = "pobi, jun";
+        cars.registerCars(carNames);
 
-        assertEquals("최종 우승자 : pobi, jun", OutputView.finalWinnerString(winners));
+        Car car1 = cars.getCars().get(0);
+        car1.forward();
+        Car car2 = cars.getCars().get(1);
+        car2.forward();
+
+        FinalWinners finalWinners = new FinalWinners();
+        finalWinners.decideWinner(cars);
+
+        assertEquals("최종 우승자 : pobi, jun", finalWinners.toString());
     }
 }
