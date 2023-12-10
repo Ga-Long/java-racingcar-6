@@ -1,16 +1,13 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.FinalWinners;
 import racingcar.model.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
     private final Cars cars = new Cars();
-    private final List<Car> finalWinners = new ArrayList<>();
     private int attemptCount;
 
     public void start() {
@@ -44,11 +41,13 @@ public class RacingGame {
     }
 
     public void play() {
-        OutputView.exeutionResult();
+        executeGame();
+    }
 
+    private void executeGame() {
+        OutputView.executionResult();
         playRounds();
-
-        decideWinner();
+        FinalWinners finalWinners = decideWinner();
         OutputView.finalWinner(finalWinners);
     }
 
@@ -59,17 +58,11 @@ public class RacingGame {
         }
     }
 
-    private void decideWinner() {
-        int maxPosition = -1;
+    private FinalWinners decideWinner() {
+        FinalWinners finalWinners = new FinalWinners();
 
-        for (Car car : cars.getCars()) {
-            if (car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-                finalWinners.clear();
-                finalWinners.add(car);
-            } else if (car.getPosition() == maxPosition) {
-                finalWinners.add(car);
-            }
-        }
+        finalWinners.decideWinner(cars);
+
+        return finalWinners;
     }
 }
