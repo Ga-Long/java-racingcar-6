@@ -1,20 +1,28 @@
 package racingcar.controller;
 
-import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.RandomNumber;
 import racingcar.view.OutputView;
 
 public class Round {
-    public static void play(List<Car> carList) {
-        createRandom(carList);
-        OutputView.resultGame(carList);
+    private final Cars cars;
+
+    public Round(Cars cars) {
+        this.cars = cars;
     }
 
-    public static void createRandom(List<Car> carList) {
-        for (Car car : carList) {
-            RandomNumber.make();
-            if (RandomNumber.isForward()) {
+    public void play() {
+        createRandom();
+        OutputView.resultGame(cars.getCars());
+    }
+
+    public void createRandom() {
+        RandomNumber randomNumber = new RandomNumber();
+
+        for (Car car : cars.getCars()) {
+            randomNumber.make();
+            if (randomNumber.isForward()) {
                 car.forward();
             }
         }

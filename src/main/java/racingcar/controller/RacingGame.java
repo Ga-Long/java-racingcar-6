@@ -54,7 +54,8 @@ public class RacingGame {
 
     private void playRounds() {
         for (int i = 0; i < attemptCount; i++) {
-            Round.play(cars.getCars());
+            Round round = new Round(cars);
+            round.play();
         }
     }
 
