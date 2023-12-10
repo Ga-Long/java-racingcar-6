@@ -7,7 +7,7 @@ import racingcar.model.FinalWinners;
 public class OutputView {
     private static final String EXECUTION_RESULTS = "실행 결과";
 
-    public static void exeutionResult() {
+    public static void executionResult() {
         System.out.println();
         System.out.println(EXECUTION_RESULTS);
     }
