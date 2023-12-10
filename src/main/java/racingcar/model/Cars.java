@@ -43,6 +43,6 @@ public class Cars {
     }
 
     public List<Car> getCars() {
-        return new ArrayList<>(cars);
+        return cars;
     }
 }
