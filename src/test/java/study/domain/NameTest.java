@@ -3,8 +3,10 @@ package study.domain;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.controller.RacingGame;
+import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.Validator;
 
 public class NameTest {
@@ -46,14 +48,16 @@ public class NameTest {
 
     @Test
     void 이름_앞뒤_공백_제거() {
-        String[] names = new String[]{"pobi   ", "  woni ", "   jun"};
+        String carNames = "pobi     ,  woni ,    jun";
 
-        RacingGame racingGame = new RacingGame();
-        racingGame.trimSpaces(names);
+        Cars cars = new Cars();
+        cars.registerCars(carNames);
 
-        assertEquals("pobi", names[0]);
-        assertEquals("woni", names[1]);
-        assertEquals("jun", names[2]);
+        List<Car> carList = cars.getCars();
+
+        assertEquals("pobi", carList.get(0).getName());
+        assertEquals("woni", carList.get(1).getName());
+        assertEquals("jun", carList.get(2).getName());
     }
 
 }
