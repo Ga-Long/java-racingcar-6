@@ -4,14 +4,16 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Validator;
 
 public class NameTest {
+    @DisplayName("이름 길이 5글자 초과인지 확인")
     @Test
-    void 이름_5자_초과_예외처리() {
+    void checkNameLength() {
         String name = "gahyeon";
 
         assertThatThrownBy(() -> {
@@ -19,8 +21,9 @@ public class NameTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("이름에 공백 포함되어 있는지 확인")
     @Test
-    void 이름_공백_포함_예외처리() {
+    void checkNameHasSpace() {
         String name = "ga hyeon";
 
         assertThatThrownBy(() -> {
@@ -28,8 +31,9 @@ public class NameTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("참여자 2명이상인지 확인")
     @Test
-    void 참여자_2명_미만_예외처리() {
+    void checkNumberOfParticipants() {
         String[] participants = new String[]{"ghlee"};
 
         assertThatThrownBy(() -> {
@@ -37,8 +41,9 @@ public class NameTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("이름이 중복되어 있는지 확인")
     @Test
-    void 차_이름_중복_예외처리() {
+    void checkNameDuplicate() {
         String[] names = new String[]{"ghlee", "ghlee"};
 
         assertThatThrownBy(() -> {
@@ -46,8 +51,9 @@ public class NameTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("이름 앞뒤 공백 제거 확인")
     @Test
-    void 이름_앞뒤_공백_제거() {
+    void checkNameTrimSpaces() {
         String carNames = "pobi     ,  woni ,    jun";
 
         Cars cars = new Cars();
