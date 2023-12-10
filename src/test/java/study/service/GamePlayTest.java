@@ -4,6 +4,7 @@ package study.service;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.Round;
 import racingcar.model.Cars;
@@ -12,8 +13,9 @@ public class GamePlayTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+    @DisplayName("랜덤값 4 이상이면 전진")
     @Test
-    void 랜덤값_4이상_전진() {
+    void ForwardIfFourOrMore() {
         String carNames = "pobi,woni,jun";
         Cars cars = new Cars();
         cars.registerCars(carNames);
