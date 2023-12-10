@@ -14,7 +14,7 @@ public class Validator {
 
     public static void isPositiveNum(int attemptCount) {
         if (attemptCount <= 0) {
-            throw new IllegalArgumentException("1번 이상이어야 합니다.");
+            throw new IllegalArgumentException("양수여야 합니다.");
         }
     }
 

@@ -26,13 +26,6 @@ public class RacingGame {
         cars.registerCars(carNames);
     }
 
-
-    public void trimSpaces(String[] names) {
-        for (int i = 0; i < names.length; i++) {
-            names[i] = names[i].trim();
-        }
-    }
-
     private void inputAttemptCount() {
         String count = InputView.attemptCount();
 
@@ -52,12 +45,17 @@ public class RacingGame {
 
     public void play() {
         OutputView.exeutionResult();
-        for (int i = 0; i < attemptCount; i++) {
-            Round.play(cars.getCars());
-        }
+
+        playRounds();
 
         decideWinner();
         OutputView.finalWinner(finalWinners);
+    }
+
+    private void playRounds() {
+        for (int i = 0; i < attemptCount; i++) {
+            Round.play(cars.getCars());
+        }
     }
 
     private void decideWinner() {
