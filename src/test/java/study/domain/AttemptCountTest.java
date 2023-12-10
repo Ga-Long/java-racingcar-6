@@ -3,12 +3,14 @@ package study.domain;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Validator;
 
 public class AttemptCountTest {
+    @DisplayName("시도할 횟수 숫자 입력 예외처리")
     @Test
-    void 시도할_횟수_숫자_예외처리() {
+    void checkNumber() {
         String attemptCount = "ㅇ";
 
         assertThatThrownBy(() -> {
@@ -16,9 +18,10 @@ public class AttemptCountTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("시도할 횟수 양수 입력 예외처리")
     @Test
-    void 시도할_횟수_양수_예외처리() {
-        Integer attemptCount = -1;
+    void checkPositiveNumber() {
+        int attemptCount = -1;
 
         assertThatThrownBy(() -> {
             Validator.isPositiveNum(attemptCount);
