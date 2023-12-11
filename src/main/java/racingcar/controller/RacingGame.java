@@ -2,9 +2,8 @@ package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.FinalWinners;
-import racingcar.domain.Validator;
+import racingcar.service.Register;
 import racingcar.service.Round;
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
@@ -13,41 +12,25 @@ public class RacingGame {
 
     public void start() {
         registerCars();
-        inputAttemptCount();
-
         play();
     }
 
+
     private void registerCars() {
-        String carNames = InputView.carNames();
+        Register register = new Register();
 
-        cars.registerCars(carNames);
+        register.registerCars(cars);
+        attemptCount = register.inputAttemptCount();
     }
 
-    private void inputAttemptCount() {
-        String count = InputView.attemptCount();
-
-        checkNaturalNumber(count);
-
-        setAttemptCount(Integer.parseInt(count));
-    }
-
-    private void checkNaturalNumber(String count) {
-        Validator.checkNumber(count);
-        Validator.isPositiveNum(Integer.parseInt(count));
-    }
-
-    private void setAttemptCount(int attemptCount) {
-        this.attemptCount = attemptCount;
-    }
-
-    public void play() {
+    private void play() {
+        OutputView.executionResult();
         executeGame();
     }
 
     private void executeGame() {
-        OutputView.executionResult();
         playRounds();
+        
         FinalWinners finalWinners = decideWinner();
         OutputView.finalWinner(finalWinners);
     }
