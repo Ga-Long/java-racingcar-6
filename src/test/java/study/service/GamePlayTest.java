@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.controller.Round;
+import racingcar.controller.RacingGame.Round;
 import racingcar.domain.Cars;
 
 public class GamePlayTest {
