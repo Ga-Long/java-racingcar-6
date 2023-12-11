@@ -1,8 +1,8 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.model.Car;
-import racingcar.model.FinalWinners;
+import racingcar.domain.Car;
+import racingcar.domain.FinalWinners;
 
 public class OutputView {
     private static final String EXECUTION_RESULTS = "실행 결과";

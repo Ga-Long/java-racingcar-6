@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.model.Car;
-import racingcar.model.Cars;
-import racingcar.model.FinalWinners;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.FinalWinners;
 
 public class GameResultTest {
 

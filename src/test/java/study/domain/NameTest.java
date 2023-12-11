@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.model.Car;
-import racingcar.model.Cars;
-import racingcar.model.Validator;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.Validator;
 
 public class NameTest {
     @DisplayName("이름 길이 5글자 초과인지 확인")

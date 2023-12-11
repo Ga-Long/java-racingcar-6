@@ -1,8 +1,8 @@
 package racingcar.controller;
 
-import racingcar.model.Cars;
-import racingcar.model.FinalWinners;
-import racingcar.model.Validator;
+import racingcar.domain.Cars;
+import racingcar.domain.FinalWinners;
+import racingcar.domain.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.Round;
-import racingcar.model.Cars;
+import racingcar.domain.Cars;
 
 public class GamePlayTest {
     private static final int MOVING_FORWARD = 4;

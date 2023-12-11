@@ -1,8 +1,8 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
-import racingcar.model.Cars;
-import racingcar.model.RandomNumber;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.RandomNumber;
 import racingcar.view.OutputView;
 
 public class Round {
